@@ -1,0 +1,12 @@
+test case:
+
+7 e a a b a c c b c d d e d f
+
+
+testCase :
+
+4
+a b
+b c
+a c
+b d

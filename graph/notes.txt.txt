@@ -1,0 +1,3 @@
+sparce graph is a graph where nodes or vertices are not connected with most of the vertices present in the graph. A sparse graph has much fewer edges than the maximum possible for the number of vertices.
+
+opposite of sparce graph is dense graph
