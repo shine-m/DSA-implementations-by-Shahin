@@ -11,17 +11,37 @@ public:
     int length, price;
     parameters(int l, int p) : length(l), price(p) {}
 };
-
-int rod_cutting(vector<parameters> &v, int left, int n)
+map<int, pair<bool, int>> dp;
+int iteration = 0;
+int rod_cutting(deque<parameters> &v, int n)
 {
-    return left;
+    iteration++;
+
+    if (dp[n].first)
+        return dp[n].second;
+
+    int maxx = 0, temp = 0;
+
+    for (int i = n; i > 0; i--)
+    {
+        if (i >= v.size()) // this if condition enables to calculate for length for which we are not given any initial price
+            temp = max(temp, rod_cutting(v, i - 1) + rod_cutting(v, n - i + 1));
+        else
+            temp = max(temp, v[i].price + rod_cutting(v, n - i));
+    }
+    dp[n].first = 1;
+    return dp[n].second = temp;
 }
 int main()
 {
     linegap
 
-        vector<parameters>
-            rod = {{1, 1}, {2, 3}, {3, 6}, {4, 7}};
+        dp[0]
+            .first = 1;
+    dp[0].second = 0;
+    deque<parameters>
+        rod = {{1, 2}, {2, 5}, {3, 9}, {4, 15}};
+    rod.push_front({0, 0});
     int size = rod.size();
     print("length - price" << ln);
     for (auto i : rod)
@@ -29,8 +49,13 @@ int main()
         cout << i.length << " " << i.price << ln;
     }
     cout << ln;
-    print("enter length of Rod\t") int total_length;
-    cin >> total_length;
-    print("maximum prifit\t" << rod_cutting(rod, total_length, size - 1) << ln)
-        linegap return 0;
+
+    // cout << rod_cutting(rod, rod.size() - 1) << ln;
+    cout << "input any rod length\t";
+    int len;
+    cin >> len;
+    cout << rod_cutting(rod, len) << ln;
+    cout << "numberofiteraeteion\t" << iteration << ln;
+
+    linegap return 0;
 }

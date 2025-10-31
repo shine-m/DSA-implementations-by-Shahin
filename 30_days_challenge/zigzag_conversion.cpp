@@ -26,7 +26,7 @@ public:
             else
             {
 
-                int dir = 0;
+                int dir = 0; // dir for direction. uppper direction and lower directions are indicated using  0 and 1
                 while (cur < s.length())
                 {
 
@@ -51,7 +51,6 @@ public:
 int main()
 {
     cout << ln << ln;
-    // ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
     Solution ob;
     cout << ob.convert("PAYPALISHIRING", 40);

@@ -1,0 +1,1 @@
+   pooled_image = blocks.max(axis=(2, 3))

@@ -1,0 +1,14 @@
+decision : 
+source of observation : codeforces round 1009 div - 3
+
+1)
+                    x^y + 2*(x&y) 
+
+x⊕y gives the sum without carry, and  2(x&y) adds the carry effect back in
+
+2)
+                   x+y > x⊕y
+
+Intuition: The sum of two numbers is always greater than their XOR because XOR only adds bits where one of the numbers has x 1, but ignores carry bits.
+
+x+y includes the carry from addition, while  x⊕y does not.

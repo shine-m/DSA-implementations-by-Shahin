@@ -18,13 +18,10 @@ public:
                 start = pos[s[i]];
             }
             pos[s[i]] = i + 1;
-
-            cout << i << " " << max_len << " " << pos[s[i]] << " " << start << ln;
         }
         return max(max_len, int(s.length() - start));
     }
 };
-
 int main()
 {
 

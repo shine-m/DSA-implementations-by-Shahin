@@ -3,10 +3,11 @@ test case:
 7 e a a b a c c b c d d e d f
 
 
-testCase :
+testCase : (cycle detection)
 
-4
+5
 a b
 b c
-a c
-b d
+c d
+d e
+e a

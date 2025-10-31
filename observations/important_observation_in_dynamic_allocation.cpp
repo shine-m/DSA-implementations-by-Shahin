@@ -35,7 +35,7 @@ int main()
     l->val = 34;
     cout << l->val << " ";
 
-    // code ta etokhon kaaj kore nai karon pointer declar kora hoile o memory cllocation hoy nai. tai ekahane new kewwork diye ekta memory allocation kore nite hobe
+    // code ta etokhon kaaj kore nai karon pointer declar kora hoile o memory cllocation hoy nai. tai ekahane new keyword diye ekta memory allocation kore nite hobe
 
     ListNode *node = new ListNode(); // ei 2 line kaaj korbe na karon ager code gulo vul r executuion okhane e halt kore ase
     cout << node->val << " ";
