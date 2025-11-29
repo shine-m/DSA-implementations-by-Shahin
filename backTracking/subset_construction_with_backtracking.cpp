@@ -39,7 +39,7 @@ int main()
 {
     system("cls");
     cout << ln << ln;
-    vector<int> v = {1, 2, 3};
+    vector<int> v = {1, 1, 1, 2, 2};
     set_ obj(v);
     // set_ obj({2, 3, 4, 1});
     // vector<vector<int>>v = obj.subset(0);

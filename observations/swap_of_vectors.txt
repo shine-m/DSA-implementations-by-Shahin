@@ -1,0 +1,24 @@
+vector has a method called swap() which is the fastest way to swap elements between two vectors.
+
+    it is faster than assignment
+
+    internally every vector strores 3 info
+    1 /
+    pointer to a dynamic array
+    2 /
+    size of the array
+    3 /
+    max capacity
+
+    swap() simply swaps these 3 elements in O(1) without swaping element by element
+
+    two vectors v1,
+    v2
+
+    swap(v1, v2)
+work exactly same as v1.swap(v2) because swap(v1, v2)
+is defined as v1.swap(v2) internally
+
+    to empty a vector
+    or clear a vector,
+    vector<int>().swap(existing vector)
