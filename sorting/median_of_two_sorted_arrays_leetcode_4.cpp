@@ -9,50 +9,40 @@ using namespace std;
 #ifdef _WIN32
 #define ClearTerminal system("cls")
 #endif
-
 class Solution
 {
 public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
     {
 
-        vector<int> aggregate(nums1.size() + nums2.size());
-        int n1 = 0, n2 = 0;
-        for (int i = 0; i <= aggregate.size() / 2; i++)
+        int n1, n2;
+        n1 = n2 = 0;
+        vector<int> augmented;
+        while (n1 < nums1.size() && n2 < nums2.size())
         {
-            if (n1 == nums1.size())
-            {
-                while (n2 < nums2.size() && i <= aggregate.size() / 2)
-                {
-                    aggregate[i++] = nums2[n2++];
-                }
-                break;
-            }
-            if (n2 == nums2.size())
-            {
-                while (n1 < nums1.size() && i <= aggregate.size() / 2)
-                {
-                    aggregate[i++] = nums1[n1++];
-                }
-                break;
-            }
 
-            if (nums1[n1] > nums2[n2])
-            {
-                aggregate[i] = nums2[n2++];
-            }
+            if (nums1[n1] < nums2[n2])
+                augmented.push_back(nums1[n1++]);
             else
-                aggregate[i] = nums1[n1++];
+                augmented.push_back(nums2[n2++]);
         }
-        if (aggregate.size() & 1)
+        while (n1 < nums1.size())
         {
-            return (aggregate[aggregate.size() / 2]);
+            augmented.push_back(nums1[n1++]);
         }
-        else
-            return (aggregate[aggregate.size() / 2] + aggregate[(aggregate.size() - 1) / 2]) / 2.0;
+        while (n2 < nums2.size())
+        {
+            augmented.push_back(nums2[n2++]);
+        }
+
+        if (augmented.size() & 1)
+            return augmented[augmented.size() / 2];
+
+        return (augmented[augmented.size() / 2] +
+                augmented[(augmented.size() - 1) / 2]) /
+               2.0;
     }
 };
-
 int main()
 {
     FAST_IO
